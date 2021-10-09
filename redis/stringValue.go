@@ -6,7 +6,7 @@ import (
 	"github.com/go-redis/redis"
 )
 
-func RunStringValueDemos(rdb *redis.Client){
+func RunStringValueDemos(rdb *redis.Client) {
 	//StringToStringValue(rdb)
 	//StructToStringValue(rdb)
 	IntToStringValue(rdb)
@@ -14,7 +14,7 @@ func RunStringValueDemos(rdb *redis.Client){
 
 // 插入简单字符串
 // 这是一个官方例子
-func StringToStringValue(rdb *redis.Client){
+func StringToStringValue(rdb *redis.Client) {
 	err := rdb.Set("key", "value", 0).Err()
 	if err != nil {
 		panic(err)
@@ -41,7 +41,7 @@ func StringToStringValue(rdb *redis.Client){
 	rdb.Del("key")
 }
 
-func IntToStringValue(rdb *redis.Client){
+func IntToStringValue(rdb *redis.Client) {
 	err := rdb.Set("key", 10, 0).Err()
 	if err != nil {
 		panic(err)
@@ -68,23 +68,23 @@ func IntToStringValue(rdb *redis.Client){
 	rdb.Del("key")
 }
 
-
 type Person struct {
-	Name string `json:"name"`
-	Age int `json:"age"`
+	Name   string `json:"name"`
+	Age    int    `json:"age"`
 	School string `json:"school"`
 }
+
 // 插入struct
-func StructToStringValue(rdb *redis.Client){
-	hx:=Person{
+func StructToStringValue(rdb *redis.Client) {
+	hx := Person{
 		Name:   "huxiao",
 		Age:    23,
 		School: "SEU",
 	}
 	// 如果直接set struct，会报错："redis: can't marshal main.Person (implement encoding.BinaryMarshaler)"
 	// 要自己先序列化，再传入redis
-	data, _ :=json.Marshal(hx)
-	err := rdb.Set("key",data,0).Err()
+	data, _ := json.Marshal(hx)
+	err := rdb.Set("key", data, 0).Err()
 	if err != nil {
 		panic(err)
 	}
@@ -96,7 +96,7 @@ func StructToStringValue(rdb *redis.Client){
 	} else if err != nil {
 		panic(err)
 	} else {
-		if err := json.Unmarshal([]byte(val2),&hx2);err != nil {
+		if err := json.Unmarshal([]byte(val2), &hx2); err != nil {
 			return
 		}
 		fmt.Println("key2", hx2)

@@ -1,0 +1,16 @@
+postgresConfig:
+  host: localhost
+  dbname: "demoDB"
+  port: 5432
+  user: "postgres"
+  passwd: demo
+  maxOpenConns: 200
+
+
+mysqlConfig:
+  host: localhost
+  dbname: "demoDB"
+  port: 3306
+  user: "root"
+  passwd: yaomoni980602
+  maxOpenConns: 200

@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 )
+
 // 来源：官方示例
 // This example demonstrates the use of a cancelable context to prevent a goroutine leak.
 // By the end of the example function, the goroutine started by gen will return without leaking.
@@ -39,4 +40,3 @@ func main() {
 		}
 	}
 }
-
