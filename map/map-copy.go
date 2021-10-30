@@ -6,7 +6,7 @@ func main() {
 	// 本函数用于测试map拷贝时，重新修改拷贝后的map，会不会影响原map的值
 	// 结论：map本身是指针，所以这样的拷贝是没有作用的，只是将map2重新指向了map1的地址而已，map只能浅拷贝
 	// map深拷贝只能采用循环赋值的方式实现
-	//mapShallowCopy()
+	// mapShallowCopy()
 
 	// 本函数用于map深拷贝
 	// 注意：struct赋值是深拷贝
