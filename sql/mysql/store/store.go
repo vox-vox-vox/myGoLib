@@ -15,8 +15,8 @@ func create(account Account) {
 	global.GMySQLDb.Create(&account)
 }
 
-func BatchCreate(accounts []Account) error{
-	if err:= global.GMySQLDb.Create(&accounts).Error;err!= nil {
+func BatchCreate(accounts []Account) error {
+	if err := global.GMySQLDb.Create(&accounts).Error; err != nil {
 		return err
 	}
 	return nil

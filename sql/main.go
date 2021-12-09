@@ -8,6 +8,3 @@ func main() {
 	//pg.RunPgDemo()
 	mysql.RunMySQLDemo()
 }
-
-
-

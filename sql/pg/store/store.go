@@ -15,8 +15,8 @@ func create(account Account) {
 	global.GpgDb.Create(&account)
 }
 
-func BatchCreate(accounts []Account) error{
-	if err:= global.GpgDb.Create(&accounts).Error;err!= nil {
+func BatchCreate(accounts []Account) error {
+	if err := global.GpgDb.Create(&accounts).Error; err != nil {
 		return err
 	}
 	return nil

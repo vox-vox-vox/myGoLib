@@ -54,12 +54,10 @@ func Isolation() {
 	2. the query does see the effects of previous updates executed within its own transaction, even though they are not yet committed.
 	*/
 
-
 	// RepeatableReadNoPhantom() // 验证RepeatableRead级别不会出现幻读
 	// RepeatableReadNoUnRepeatableRead() // 验证RepeatableRead级别不会出现可重复读
 
 	// 4. SERIALIZABLE
-
 
 }
 

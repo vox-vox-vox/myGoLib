@@ -14,7 +14,7 @@ func main() {
 /*
 	goroutine 未加 recover，panic时整个进程崩溃
 */
-func routineNoRecover()  {
+func routineNoRecover() {
 	println("main")
 	go func() {
 		println("goroutineA")
@@ -27,7 +27,7 @@ func routineNoRecover()  {
 Go语言没有异常系统，其使用 panic 触发宕机类似于其他语言的抛出异常，recover 的宕机恢复机制就对应其他语言中的 try/catch 机制。
 
 */
-func routineRecover()  {
+func routineRecover() {
 	println("main")
 	go func() {
 		// 延迟处理的函数

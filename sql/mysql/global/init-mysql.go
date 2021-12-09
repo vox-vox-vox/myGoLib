@@ -38,19 +38,19 @@ func NewPgDBWithConfig(ConfigName string) *gorm.DB {
 	newLogger := logger.New(
 		log.New(os.Stdout, "\r\n", log.LstdFlags), // io writer（日志输出的目标，前缀和日志包含的内容——译者注）
 		logger.Config{
-			SlowThreshold: time.Second,   // 慢 SQL 阈值
-			LogLevel:      logger.Info, // 日志级别
-			IgnoreRecordNotFoundError: true,   // 忽略ErrRecordNotFound（记录未找到）错误
-			Colorful: true,
+			SlowThreshold:             time.Second, // 慢 SQL 阈值
+			LogLevel:                  logger.Info, // 日志级别
+			IgnoreRecordNotFoundError: true,        // 忽略ErrRecordNotFound（记录未找到）错误
+			Colorful:                  true,
 		},
 	)
 
 	db, err := gorm.Open(mysql.Open(ConnectStr), &gorm.Config{
 		SkipDefaultTransaction: true,
-		Logger: newLogger,
+		Logger:                 newLogger,
 	})
 
-	if err!=nil{
+	if err != nil {
 		panic(err)
 	}
 
@@ -69,15 +69,12 @@ func NewPgDBWithConfig(ConfigName string) *gorm.DB {
 	return db
 }
 
-
 func LoadConfig() {
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath("./sql")
 	err := viper.ReadInConfig()
-	if err != nil {             // Handle errors reading the config file
+	if err != nil { // Handle errors reading the config file
 		log.Fatal("fail to load config file", err)
 	}
 }
-
-

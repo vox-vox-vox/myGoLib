@@ -44,7 +44,6 @@ func Isolation() {
 
 	// 4. SERIALIZABLE
 
-
 }
 
 func Lock() {

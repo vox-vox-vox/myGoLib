@@ -23,12 +23,12 @@ func insertToClosedChan() {
 	go do(taskCh)
 	// insert
 	for i := 0; i < 20; i++ {
-		if i<10{
-			println("insert number" +strconv.Itoa(i)+" into chan")
+		if i < 10 {
+			println("insert number" + strconv.Itoa(i) + " into chan")
 			taskCh <- i
-		}else if i==10{
+		} else if i == 10 {
 			close(taskCh)
-		}else{
+		} else {
 			taskCh <- i
 		}
 	}
@@ -40,5 +40,5 @@ func main() {
 
 	insertToClosedChan() // panic: send on closed channel
 
-	time.Sleep(2*time.Second)
+	time.Sleep(2 * time.Second)
 }
